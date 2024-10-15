@@ -1,15 +1,18 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3.0 + Vite" />
+  <div>导航栏 | 
+    <router-link to="/">Yang1</router-link> |
+    <router-link to="/yang2">Yang2</router-link>
+  </div>
+  <RouterView/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { RouterView } from 'vue-router';
+
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
   }
 }
 </script>
