@@ -1,18 +1,9 @@
 <template>
-  <div>导航栏 | 
-    <router-link to="/">Yang1</router-link> |
-    <router-link to="/yang2">Yang2</router-link>
-  </div>
-  <RouterView/>
+  <router-view/>
 </template>
 
-<script>
-import { RouterView } from 'vue-router';
-
-
+<script lang="ts">
 export default {
   name: 'App',
-  components: {
-  }
 }
 </script>
