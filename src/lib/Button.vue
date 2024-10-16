@@ -2,7 +2,7 @@
   <button class="ree-button"
     :class="classes" :disabled="disabled">
     <div v-if="loading" class="ree-loadingIndicator"></div>
-    <slot/>
+    <slot>
   </button>
 </template>
 
