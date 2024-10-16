@@ -1,29 +1,54 @@
 <template>
-    <button class="ree-button"
-    :class="{[`ree-button-${theme}`]: theme}"
-  >
-      <slot />
-  </div>
+  <button class="ree-button"
+    :class="classes" :disabled="disabled">
+    <div v-if="loading" class="ree-loadingIndicator"></div>
+    <slot/>
+  </button>
 </template>
 
 <script lang="ts">
+import { computed } from 'vue';
+
 export default {
   name: 'Button',
-  inheritAttrs: false,
   props: {
     theme: {
       type: String,
       default: 'button'
+    },
+    size: {
+      type: String,
+      default: 'normal'
+    },
+    level: {
+      type: String,
+      default: 'normal'
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    loading: {
+      type: Boolean,
+      default: false
     }
   },
-  // setup(props, context) {
-  //   const {size, theme, ...restProps} = context.attrs
-  //   return {
-  //     size,
-  //     theme,
-  //     restProps
-  //   } 
-  // }
+  setup(props, context) {
+    const {theme, size, level, disabled, loading} = props
+    const classes = computed(() => {
+      return {
+        [`ree-theme-${theme}`]: theme,
+        [`ree-size-${size}`]: size,
+        [`ree-level-${level}`]: level,
+        'is-disabled': disabled
+      }
+    })
+    return {
+      classes,
+      disabled,
+      loading
+    }
+  }
 }
 
 </script>
@@ -33,8 +58,11 @@ $h: 32px;
 $border-color: #d9d9d9;
 $color: #333;
 $blue: #40a9ff;
+$red: #f1463a;
+$grey: #999;
 $radius: 4px;
 .ree-button {
+
   box-sizing: border-box;
   height: $h;
   padding: 0 12px;
@@ -62,7 +90,7 @@ $radius: 4px;
   &::-moz-focus-inner {
     border: 0;
   }
-  &.ree-button-link {
+  &.ree-theme-link {
     border-color: transparent;
     box-shadow: none;
     color: $blue;
@@ -71,7 +99,7 @@ $radius: 4px;
       color: lighten($blue, 10%);
     }
   }
-  &.ree-button-text {
+  &.ree-theme-text {
     border-color: transparent;
     box-shadow: none;
     color: $color;
@@ -79,6 +107,97 @@ $radius: 4px;
     &:focus {
       color: darken($blue, 10%);
     }
+  }
+  &.ree-size-big{
+    font-size: 24px;
+    height: 48px;
+    padding: 0 16px
+  }
+  &.ree-size-small{
+    font-size: 12px;
+    height: 20px;
+    padding: 0 4px;
+  }
+  &.ree-theme-button {
+    &.ree-level-main {
+      background: $blue;
+      color: white;
+      border-color: $blue;
+      &:hover,
+      &:focus {
+        background: darken($blue, 10%);
+        border-color: darken($blue, 10%);
+      }
+    }
+    &.ree-level-danger {
+      background: red;
+      color: white;
+      border-color: red;
+      &:hover,
+      &:focus {
+        background: darken($red, 10%);
+        border-color: darken($red, 10%);
+      }
+    }
+  }
+  &.ree-theme-text {
+    &.ree-level-main {
+      color: $blue;
+      &:hover,
+      &:focus {
+        color: darken($blue, 10%);
+      }
+    }
+    &.ree-level-danger {
+      color: $red;
+      &:hover,
+      &:focus {
+        color: darken($red, 10%);
+      }
+    }
+  }
+  &.ree-theme-link {
+    &.ree-level-danger {
+      color: $red;
+      &:hover,
+      &:focus {
+        color: darken($red, 10%);
+      }
+    }
+  }
+  &.ree-theme-button {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+      &:hover {
+        border-color: $grey;
+      }
+    }
+  }
+  &.ree-theme-link, &.ree-theme-text {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+    }
+  }
+  > .ree-loadingIndicator {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    margin-right: 4px;
+    border-radius: 8px; 
+    border-color: $blue $blue $blue transparent;
+    border-style: solid;
+    border-width: 2px;
+    animation: loading 1s linear infinite;
+  }
+}
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 </style>
