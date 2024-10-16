@@ -32,10 +32,11 @@ export default {
   components: { Topnav },
   setup() {
     const menuVisible = inject<Ref<boolean>>('menuVisible')
-    return { menuVisible }
+      return { menuVisible }
   },
 };
 </script>
+
 <style lang="scss" scoped>
 .layout {
   display: flex;
@@ -61,7 +62,6 @@ export default {
   > main {
     flex-grow: 1;
     padding: 16px;
-    background: lightgreen;
   }
 }
 aside {
@@ -73,6 +73,7 @@ aside {
   left: 0;
   padding-top: 70px;
   height: 100%;
+  z-index: 9;
   > h2 {
     margin-bottom: 4px;
   }

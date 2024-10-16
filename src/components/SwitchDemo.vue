@@ -1,18 +1,16 @@
 <template>
-  <h1>Switch 示例</h1>
-  <p>Switch 的文档</p>
-  <p>Switch 的文档</p>
-  <p>Switch 的文档</p>
-  <p>Switch 的文档</p>
-  <p>Switch 的文档</p>
-  <p>Switch 的文档</p>
-  <p>Switch 的文档</p>
-  <p>Switch 的文档</p>
-  <p>Switch 的文档</p>
-  <p>Switch 的文档</p>
-  <p>Switch 的文档</p>
-  <p>Switch 的文档</p>
-  <p>Switch 的文档</p>
-  <p>Switch 的文档</p>
-  <p>Switch 的文档</p>
+  <Switch v-model:checked="checked" />
 </template>
+
+<script lang="ts">
+import { ref } from 'vue'
+import Switch from '../lib/Switch.vue'
+
+export default {
+  components: { Switch },
+  setup() {
+    const checked = ref(false)
+    return { checked }
+  }
+}
+</script>

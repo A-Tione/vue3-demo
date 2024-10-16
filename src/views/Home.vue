@@ -32,9 +32,9 @@ export default {
       background: #fff;
       display: inline-block;
       $h: 28px;
-      height: $h;
-      line-height: $h;
-      border-radius: $h/2;
+      height: calc($h);
+      line-height: calc($h);
+      border-radius: calc($h/2);
       padding: 0 8px;
     }
   }
