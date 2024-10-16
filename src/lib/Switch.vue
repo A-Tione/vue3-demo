@@ -1,5 +1,5 @@
 <template>
-  <button @click='toggle' :class="{checked}">
+  <button @click='toggle' class="ree-switch" :class="{'ree-switch-checked': checked}">
     <span></span>
   </button>
 </template>
@@ -19,10 +19,10 @@
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   $h: 22px;
   $h2: $h - 4px;
-  button{
+  .ree-switch {
     height: calc($h);
     width: calc($h * 2);
     border: none;
@@ -40,19 +40,19 @@
     border-radius: calc($h2 / 2);
     transition: all 250ms;
   } 
-  button.checked{
+  .ree-switch-checked{
     background: #1890ff;
   }
-  button.checked > span {
+  .ree-switch-checked > span {
     left: calc(100% - #{$h2} - 2px);
   }
-  button:focus{
+  .ree-switch:focus{
     outline: none;
   }
-  button:active{
+  .ree-switch:active{
     > span {width: $h2 + 4px;}
   }
-  button.checked:active{
+  .ree-switch-checked:active{
     > span {width: $h2 + 4px; margin-left: -4px;}
   }
 </style>
