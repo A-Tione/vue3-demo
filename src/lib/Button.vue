@@ -2,7 +2,7 @@
   <button class="ree-button"
     :class="classes" :disabled="disabled">
     <div v-if="loading" class="ree-loadingIndicator"></div>
-    <slot>
+    <slot></slot>
   </button>
 </template>
 
@@ -33,7 +33,7 @@ export default {
       default: false
     }
   },
-  setup(props, context) {
+  setup(props) {
     const {theme, size, level, disabled, loading} = props
     const classes = computed(() => {
       return {
