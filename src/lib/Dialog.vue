@@ -28,7 +28,6 @@ export default {
   components: {
     Button
   },
-
   props: {
     visible: {
       type: Boolean,
