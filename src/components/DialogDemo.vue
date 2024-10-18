@@ -1,6 +1,6 @@
 <template>
   <div>Dialog 示例</div>
-  <h1>示例1</h1>
+  <h1>示例 1</h1>
   <Button @click="toggle">toggle</Button>
   <Dialog v-model:visible="xxx" :isClickCoverClose="false" :ok="ok" :cancel="cancel">
     <template v-slot:title>
@@ -11,6 +11,7 @@
       <div>123123</div>
     </template>
   </Dialog>
+  <h1>示例 2</h1>
   <Button @click="showDialog">打开Dialog</Button>
 </template>
 
