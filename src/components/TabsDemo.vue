@@ -18,7 +18,7 @@ export default {
     Tab,
   },
   setup() {
-    const xxx = ref('导航 1')
+    const xxx = ref('导航 22222222')
 
     return {
       xxx

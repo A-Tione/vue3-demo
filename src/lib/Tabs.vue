@@ -1,7 +1,7 @@
 <template>
   <div class="ree-tabs">
     <div class="ree-tabs-nav" ref="container">
-      <div 
+      <div
         v-for="(t, index) in titles" 
         :key="index"
         ref="titlesRef" 
@@ -20,7 +20,7 @@
 </template>
 
 <script lang="ts">
-import { computed, ref, watchEffect } from 'vue';
+import { computed, onMounted, onUpdated, ref } from 'vue';
 import Tab from './Tab.vue';
 export default {
   props: {
@@ -32,9 +32,8 @@ export default {
     const titlesRef = ref<HTMLDivElement[]> ([])
     const indicator = ref<HTMLDivElement | null> (null)
     const container = ref<HTMLDivElement | null> (null)
-    watchEffect(() => {
+    const watchEffect = (() => {
       const result = titlesRef.value.filter(div => div.classList.contains('selected'))[0]
-      if (!result) {return}
       const {width} = result.getBoundingClientRect()
       indicator.value!.style.width = width + 'px'
       const {
@@ -46,6 +45,8 @@ export default {
       const left = left2 - left1
       indicator.value!.style.left = left + 'px'
     })
+    onMounted(watchEffect)
+    onUpdated(watchEffect)
     
     const defaults = context.slots.default?.() || []
     defaults.forEach(element => {
@@ -71,6 +72,7 @@ export default {
       select,
       indicator,
       container,
+      onMounted,
       watchEffect,
 
     }
