@@ -20,7 +20,7 @@
 </template>
 
 <script lang="ts">
-import { computed, onMounted, onUpdated, ref } from 'vue';
+import { computed, ref, watchEffect } from 'vue';
 import Tab from './Tab.vue';
 export default {
   props: {
@@ -29,13 +29,12 @@ export default {
     }
   },
   setup(props, context) {
-    const navItems = ref<HTMLDivElement[]> ([])
     const titlesRef = ref<HTMLDivElement[]> ([])
     const indicator = ref<HTMLDivElement | null> (null)
     const container = ref<HTMLDivElement | null> (null)
-    const x = () => {
-      const divs = titlesRef.value
-      const result = divs.filter(div => div.classList.contains('selected'))[0]
+    watchEffect(() => {
+      const result = titlesRef.value.filter(div => div.classList.contains('selected'))[0]
+      if (!result) {return}
       const {width} = result.getBoundingClientRect()
       indicator.value!.style.width = width + 'px'
       const {
@@ -46,9 +45,7 @@ export default {
       } = result.getBoundingClientRect()
       const left = left2 - left1
       indicator.value!.style.left = left + 'px'
-    }
-    onMounted(x)
-    onUpdated(x)
+    })
     
     const defaults = context.slots.default?.() || []
     defaults.forEach(element => {
@@ -72,10 +69,10 @@ export default {
       titlesRef,
       current,
       select,
-      navItems,
       indicator,
       container,
-      x
+      watchEffect,
+
     }
   }
 }
