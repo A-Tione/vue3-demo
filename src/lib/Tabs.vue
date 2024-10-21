@@ -14,7 +14,7 @@
       <div class="ree-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="ree-tabs-comtent">
-      <component class="ree-tabs-content-item" :is="current" :key="selected"/>
+      <component :is="current" :key="selected"/>
     </div>
   </div>
 </template>
