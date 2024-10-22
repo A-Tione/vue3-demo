@@ -1,10 +1,10 @@
 <template>
   <div class="topnav">
-    <div class="logo">
+    <RouterLink to="/" class="logo">
       <svg class="icon">
         <use xlink:href="#icon-a-homezhuyefangzijia"></use>
       </svg>
-    </div>
+    </RouterLink>
     <ul class="menu">
       <li>菜单1</li>
       <li>菜单2</li>
@@ -16,6 +16,7 @@
 </template>
 <script lang="ts">
 import { inject, Ref } from "vue";
+import { RouterLink } from "vue-router";
 export default {
   props: {
     toggleMenuButtonVisible: {
