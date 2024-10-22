@@ -4,7 +4,7 @@
       <div
         v-for="(t, index) in titles" 
         :key="index"
-        ref="titlesRef" 
+        :ref="e => {if(t === selected) selectedItem = e}"
         class="ree-tabs-nav-item" 
         :class="{selected: t === selected}" 
         @click="select(t)" 
@@ -20,7 +20,7 @@
 </template>
 
 <script lang="ts">
-import { computed, onMounted, onUpdated, ref } from 'vue';
+import { computed, onMounted, ref, watchEffect } from 'vue';
 import Tab from './Tab.vue';
 export default {
   props: {
@@ -29,25 +29,23 @@ export default {
     }
   },
   setup(props, context) {
-    const titlesRef = ref<HTMLDivElement[]> ([])
+    const selectedItem = ref<HTMLDivElement | null> (null)
     const indicator = ref<HTMLDivElement | null> (null)
     const container = ref<HTMLDivElement | null> (null)
-    const watchEffect = (() => {
-      const result = titlesRef.value.filter(div => div.classList.contains('selected'))[0]
-      const {width} = result.getBoundingClientRect()
-      indicator.value!.style.width = width + 'px'
-      const {
-        left: left1
-      } = container.value!.getBoundingClientRect()
-      const {
-        left: left2
-      } = result.getBoundingClientRect()
-      const left = left2 - left1
-      indicator.value!.style.left = left + 'px'
+    onMounted(() => {
+      watchEffect(() => {
+        const {width} = selectedItem.value!.getBoundingClientRect()
+        indicator.value!.style.width = width + 'px'
+        const {
+          left: left1
+        } = container.value!.getBoundingClientRect()
+        const {
+          left: left2
+        } = selectedItem.value!.getBoundingClientRect()
+        const left = left2 - left1
+        indicator.value!.style.left = left + 'px'
+      }, {flush: 'post'})
     })
-    onMounted(watchEffect)
-    onUpdated(watchEffect)
-    
     const defaults = context.slots.default?.() || []
     defaults.forEach(element => {
       if (element.type !== Tab) {
@@ -67,7 +65,7 @@ export default {
     return {
       defaults,
       titles,
-      titlesRef,
+      selectedItem,
       current,
       select,
       indicator,

@@ -426,7 +426,7 @@
     "@vue/compiler-core" "3.5.12"
     "@vue/shared" "3.5.12"
 
-"@vue/compiler-sfc@3.5.12", "@vue/compiler-sfc@^3.0.0-rc.1", "@vue/compiler-sfc@^3.0.3":
+"@vue/compiler-sfc@3.5.12", "@vue/compiler-sfc@^3.0.0", "@vue/compiler-sfc@^3.0.3":
   version "3.5.12"
   resolved "https://npm.homepartners.com/@vue/compiler-sfc/-/compiler-sfc-3.5.12.tgz#6688120d905fcf22f7e44d3cb90f8dabc4dd3cc8"
   integrity sha512-2k973OGo2JuAa5+ZlekuQJtitI5CgLMOwgl94BzMCsKZCX/xiqzJYzapl4opFogKHqwJk34vfsaKpfEhd1k5nw==
@@ -2041,7 +2041,7 @@ vue-router@4.0.0-beta.3:
   resolved "https://npm.homepartners.com/vue-router/-/vue-router-4.0.0-beta.3.tgz#e46f45807023a4b8ce73a143a216b4c9ea3eb243"
   integrity sha512-3/cg3n46D9MO9u2nvtGE38gMyUxg8sjt6jMeZ6zbi9sRGAL0PaDHuKS+xWlOOLit7abP5MepNlh84t41gxtP8Q==
 
-vue@^3.0.0-rc.1, vue@^3.0.3:
+vue@^3.0.0, vue@^3.0.3:
   version "3.5.12"
   resolved "https://npm.homepartners.com/vue/-/vue-3.5.12.tgz#e08421c601b3617ea2c9ef0413afcc747130b36c"
   integrity sha512-CLVZtXtn2ItBIi/zHZ0Sg1Xkb7+PU32bJJ8Bmy7ts3jxXTcbfsEfBivFYYWz1Hur+lalqGAh65Coin0r+HRUfg==
