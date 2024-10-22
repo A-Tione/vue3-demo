@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 
 interface Props {
   path: string
@@ -11,8 +11,10 @@ interface Props {
 
 const props = defineProps<Props>()
 const content = ref<string>('')
-import(props.path).then(result => {
-  content.value = result.default
+onMounted(async () => {
+  import(props.path).then(result => {
+    content.value = result.default
+  })
 })
 
 </script>
