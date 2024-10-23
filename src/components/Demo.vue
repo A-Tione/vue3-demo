@@ -11,7 +11,7 @@
         <Button v-else="toggle" @click="toggle = !toggle">隐藏代码</Button>
       </div>
       <div v-if="toggle" class="demo-code">
-        <pre class="language-html" v-html="Prism.highlight(Component.__sourceCode, Prism.languages.html, 'html')" />
+        <pre class="language-html" v-html="html" />
       </div>
     </div>
   </div>
@@ -21,11 +21,15 @@
 import Button from '../lib/Button.vue';
 import 'prismjs';
 import 'prismjs/themes/prism.css'
-import { Component, ref } from 'vue';
+import { Component, computed, ref } from 'vue';
 
 interface Props {
   component: Component
 }
+
+const html = computed(() => {
+  return Prism.highlight(Component.__sourceCode, Prism.languages.html, 'html')
+})
 
 const toggle = ref(false)
 
@@ -63,6 +67,7 @@ $border-color: #d9d9d9;
       margin: 0;
       ::v-deep span {
         position: initial;
+        background-color: initial;
       }
     }
   }
