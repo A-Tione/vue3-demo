@@ -1,5 +1,5 @@
 <template>
-  <div class="topnav">
+  <div class="topnav" :class="{active: toggleMenuButtonVisible}">
     <RouterLink to="/" class="logo">
       <svg class="icon">
         <use xlink:href="#icon-a-homezhuyefangzijia"></use>
@@ -49,6 +49,9 @@ $color: #007974;
   z-index: 10;
   justify-content: center;
   align-items: center;
+  &.active {
+    background-color: #62b3cc;
+  }
   > .logo {
     max-width: 6em;
     margin-right: auto;
@@ -68,7 +71,6 @@ $color: #007974;
   > .toggleAside {
     width: 32px;
     height: 32px;
-    background: red;
     position: absolute;
     left: 16px;
     top: 50%;

@@ -18,22 +18,22 @@
           <svg class="icon">
             <use xlink:href="#icon-vue"></use>
           </svg>
-          <h3>基于 Vue 3</h3>
-          <p>使用了 Vue 3 Composition API</p>
+          <h3 class="title">基于 Vue 3</h3>
+          <p class="text">使用了 Vue 3 Composition API</p>
         </li>
         <li>
           <svg class="icon">
             <use xlink:href="#icon-ts"></use>
           </svg>
-          <h3>基于 TypeScript </h3>
-          <p>源代码采用 TypeScript 书写（非严格检查）</p>
+          <h3 class="title">基于 TypeScript </h3>
+          <p class="text">源代码采用 TypeScript 书写</p>
         </li>
         <li>
           <svg class="icon">
             <use xlink:href="#icon-light"></use>
           </svg>
-          <h3>代码易读</h3>
-          <p>每个组件的源代码都极其简洁</p>
+          <h3 class="title">代码易读</h3>
+          <p class="text">每个组件的源代码都极其简洁</p>
         </li>
       </ul>
     </div>

@@ -15,6 +15,7 @@
   "devDependencies": {
     "@vue/compiler-sfc": "^3.0.0",
     "sass": "^1.79.5",
-    "vite": "^1.0.0-rc.1"
+    "vite": "^1.0.0-rc.1",
+    "esbuild": "0.14.42"
   }
 }

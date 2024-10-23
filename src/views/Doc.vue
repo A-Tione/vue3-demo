@@ -50,7 +50,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$background: #a3e9ff;
+$background: #f5f7fa;
 .router-link-active {
   text-decoration: underline;
 }
@@ -82,6 +82,7 @@ $background: #a3e9ff;
 }
 aside {
   background: $background;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);;
   width: 136px;
   padding: 16px 0;
   position: fixed;
