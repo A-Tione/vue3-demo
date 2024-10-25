@@ -3,18 +3,11 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue';
-
 interface Props {
-  path: string
+  content: string
 }
 
 const props = defineProps<Props>()
-const content = ref<string>('')
-onMounted(async () => {
-  import(props.path).then(result => {
-    content.value = result.default
-  })
-})
+const content = props.content
 
 </script>
