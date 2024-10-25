@@ -4,6 +4,7 @@ import { baseParse, ElementNode } from '@vue/compiler-core';
 
 export default {
   plugins: [md()],
+  assetsDir: 'assets', // 将默认的 _assets 改为 _custom_assets
   vueCustomBlockTransforms: {
     demo: (options) => {
       const { code, path } = options;

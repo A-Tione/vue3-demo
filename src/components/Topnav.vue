@@ -6,8 +6,8 @@
       </svg>
     </RouterLink>
     <ul class="menu">
-      <li>菜单1</li>
-      <li>菜单2</li>
+      <li><a href="https://github.com/A-Tione/vue3-demo/tree/main">GitHub</a></li>
+      <li><a href="https://www.zhihu.com/column/c_1073599338588073984">Blob</a></li>
     </ul>
     <svg v-if="toggleMenuButtonVisible" class="toggleAside" @click="toggleMenu">
     <use xlink:href="#icon-menu"></use>
@@ -36,7 +36,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-$color: #007974;
+$color: #0d3e22;
 
 .topnav {
   color: $color;
