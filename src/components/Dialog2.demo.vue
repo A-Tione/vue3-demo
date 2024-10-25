@@ -5,8 +5,7 @@
 
 <script lang="ts" setup>
 import { h } from 'vue';
-import Button from '../lib/Button.vue'
-import { openDialog } from '../lib/index';
+import {Button, openDialog} from '../lib'
 
 const showDialog = () => {
   openDialog({

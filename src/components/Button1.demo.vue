@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts" setup>
-import Button from '../lib/Button.vue'
+import {Button} from '../lib'
 
 const onClick = ()=> {
   console.log('点击了');

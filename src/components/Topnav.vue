@@ -14,27 +14,23 @@
   </svg>
   </div>
 </template>
-<script lang="ts">
+<script lang="ts" setup>
 import { inject, Ref } from "vue";
 import { RouterLink } from "vue-router";
-export default {
-  props: {
-    toggleMenuButtonVisible: {
-      type: Boolean,
-      default: false
-    }
-  },
-  setup() {
-    const menuVisible = inject<Ref<boolean>>("menuVisible"); // get
-    const toggleMenu = () => {
-      if (menuVisible) {
-        menuVisible.value = !menuVisible.value;
-      }
-    };
-    return { toggleMenu };
-  },
+
+const props = defineProps<{
+  toggleMenuButtonVisible: boolean;
+}>();
+
+const menuVisible = inject<Ref<boolean>>("menuVisible");
+
+const toggleMenu = () => {
+  if (menuVisible) {
+    menuVisible.value = !menuVisible.value;
+  }
 };
 </script>
+
 <style lang="scss" scoped>
 $color: #0d3e22;
 
