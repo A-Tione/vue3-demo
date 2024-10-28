@@ -12,8 +12,8 @@
             <slot name="content"></slot>
           </main>
           <footer>
-            <Button @click="ok" level="main">OK</Button>
-            <Button @click="cancel">Cancel</Button>
+            <Button @click="onClickOk" level="main">OK</Button>
+            <Button @click="onClickCancel">Cancel</Button>
           </footer>
         </div>
       </div>
@@ -37,10 +37,10 @@ export default {
       type: Boolean,
       default: true
     },
-    ok: {
+    onClickOk: {
       type: Function
     },
-    cancel: {
+    onClickCancel: {
       type: Function
     }
   },
@@ -54,12 +54,12 @@ export default {
     const close = () => {
       context.emit('update:visible', false)
     }
-    const ok = () => {
-      if(props.ok?.() !== false) {
+    const onClickOk = () => {
+      if(props.onClickOk && props.onClickOk() !== false) {
         close()
       }
     }
-    const cancel = () => {
+    const onClickCancel = () => {
       context.emit('cancel')
       close()
     }
@@ -67,8 +67,8 @@ export default {
     return {
       onClickCoverClose,
       close,
-      ok,
-      cancel
+      onClickOk,
+      onClickCancel
     }
   }
 }

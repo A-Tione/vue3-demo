@@ -11,10 +11,10 @@ const showDialog = () => {
   openDialog({
     title: h('strong', {}, '标题'),
     content: '你好',
-    ok() {
+    onClickOk() {
       console.log('ok');
     },
-    cancel() {
+    onClickCancel() {
       console.log('cancel');
     }
   })
