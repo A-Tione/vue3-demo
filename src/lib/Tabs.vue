@@ -4,7 +4,7 @@
       <div
         v-for="(t, index) in titles" 
         :key="index"
-        :ref="e => {if(t === selected) selectedItem = e}"
+        :ref="(e: HTMLDivElement) => {if(t === selected) selectedItem = e}"
         class="ree-tabs-nav-item" 
         :class="{selected: t === selected}" 
         @click="select(t)" 
