@@ -6,8 +6,7 @@
   </Tabs>
 </template>
 <script lang="ts" setup>
-import Tabs from '../lib/Tabs.vue'
-import Tab from '../lib/Tab.vue'
+import {Tab,Tabs} from '../lib'
 import { ref } from 'vue';
 
 const xxx = ref('导航 22222222')

@@ -14,8 +14,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import Button from '../lib/Button.vue'
-import Dialog from '../lib/Dialog.vue';
+import {Button, Dialog} from '../lib'
 
 const xxx = ref(false)
 const toggle = () => {

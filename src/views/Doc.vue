@@ -2,6 +2,7 @@
   <div class="layout">
     <Topnav toggleMenuButtonVisible class="nav" />
     <div class="content">
+      <div class="mask" :class="{'active': menuVisible}" @click="menuVisible = false"></div>
       <aside v-if="menuVisible">
         <h2>文档</h2>
         <ol>
@@ -65,6 +66,21 @@ $background: #f5f7fa;
     flex-grow: 1;
     padding-top: 60px;
     padding-left: 156px;
+    .mask {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 9;
+      display: none;
+      @media (max-width: 500px) {
+        &.active {
+        display: block;
+      }
+      }
+    }
     @media (max-width: 500px) {
       padding-left: 0; 
     }

@@ -5,17 +5,16 @@
 
 <script lang="ts" setup>
 import { h } from 'vue';
-import Button from '../lib/Button.vue'
-import {openDialog} from '../lib/openDialog.ts'
+import {Button, openDialog} from '../lib'
 
 const showDialog = () => {
   openDialog({
     title: h('strong', {}, '标题'),
     content: '你好',
-    ok() {
+    onClickOk() {
       console.log('ok');
     },
-    cancel() {
+    onClickCancel() {
       console.log('cancel');
     }
   })
